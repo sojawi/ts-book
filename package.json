@@ -1,0 +1,27 @@
+{
+  "name": "ts-book",
+  "version": "1.0.0",
+  "description": "Learning Typescript",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sojawi/ts-book.git"
+  },
+  "author": "sojawi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sojawi/ts-book/issues"
+  },
+  "homepage": "https://github.com/sojawi/ts-book#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.1.6",
+    "typescript": "^2.2.1"
+  },
+  "dependencies": {
+    "jquery": "^3.2.0"
+  }
+}

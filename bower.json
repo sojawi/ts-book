@@ -1,0 +1,24 @@
+{
+  "name": "ts-book",
+  "description": "Learning Typescript",
+  "main": "index.html",
+  "authors": [
+    "sojawi"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sojawi/ts-book",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.0"
+  },
+  "devDependencies": {
+    "jasmine-core": "jasmine#^2.5.2"
+  }
+}
