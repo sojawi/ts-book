@@ -18,7 +18,9 @@
   "homepage": "https://github.com/sojawi/ts-book#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-tslint": "^7.1.0",
     "gulp-typescript": "^3.1.6",
+    "tslint": "^4.5.1",
     "typescript": "^2.2.1"
   },
   "dependencies": {
