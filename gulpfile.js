@@ -5,6 +5,10 @@ var browserify = require('browserify');
 var transform = require('vinyl-transform');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
+var karma = require("karma");
+var Server = require('karma').Server;
+var browserSync = require('browser-sync');
+
 
 var browserified = transform(function (filename) {
     var b = browserify({ entries: filename, debug: true });
@@ -27,7 +31,7 @@ var tsTestProject = ts.createProject({
     declarationFiles: false
 });
 
-gulp.task('default', ['lint', 'tsc', 'tsc-tests', 'bundle-js', 'bundle-test']);
+gulp.task('default', ['lint', 'tsc', 'tsc-tests', 'bundle-js', 'bundle-test', 'karma']);
 
 gulp.task('lint', function () {
     return gulp.src([
@@ -62,4 +66,36 @@ gulp.task('bundle-test', function () {
     return gulp.src('./temp/test/**/**.test.js')
         .pipe(browserified)
         .pipe(gulp.dest('./dist/test/'));
+});
+
+gulp.task('karma', function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done).start();
+});
+
+gulp.task('bundle', function (cb) {
+    runSequence('build', [
+        'bundle-js', 'bundle-test'
+    ], cb);
+});
+
+gulp.task('test', function (cb) {
+    runSequence('bundle', ['karma'], cb);
+});
+
+gulp.task('browser-sync', ['test'], function () {
+    browserSync({
+        server: {
+            baseDir: "./dist"
+        }
+    });
+    return gulp.watch([
+        "./dist/source/js/**/*.js",
+        "./dist/source/css/**.css",
+        "./dist/test/**/**.test.js",
+        "./dist/data/**/**",
+        "./index.html"
+    ], [browserSync.reload]);
 });

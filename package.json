@@ -17,9 +17,18 @@
   },
   "homepage": "https://github.com/sojawi/ts-book#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-tslint": "^7.1.0",
     "gulp-typescript": "^3.1.6",
+    "karma": "^1.5.0",
+    "karma-chai": "^0.1.0",
+    "karma-coverage": "^1.1.1",
+    "karma-mocha": "^1.3.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-sinon": "^1.0.5",
+    "mocha": "^3.2.0",
+    "sinon": "^2.0.0",
     "tslint": "^4.5.1",
     "typescript": "^2.2.1"
   },
